@@ -1,7 +1,12 @@
 package com.lcwd.electronic.store.dtos;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.aspectj.bridge.Message;
 
 @Getter
 @Setter
@@ -12,10 +17,18 @@ import lombok.*;
 public class UserDTO {
 
     private String userId;
+
+    @Size(min = 3,max = 15,message = "Invalid UserName!!!")
     private String name;
+    @Email(message = "Invalid Email !!!")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
     private String email;
+    @NotBlank(message = "Password Is Required")
     private String password;
+    @Size(min = 4,max = 6,message = "Invalid Gender !!!")
     private String gender;
+    @NotBlank(message = "Write Something about yourself")
     private String about;
+
     private String imageName;
 }
