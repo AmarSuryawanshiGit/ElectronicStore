@@ -1,13 +1,11 @@
 package com.lcwd.electronic.store.dtos;
 
 import com.lcwd.electronic.store.validate.ImageNameValidate;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.aspectj.bridge.Message;
 
 @Getter
 @Setter
@@ -15,7 +13,7 @@ import org.aspectj.bridge.Message;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserDTO {
+public class UserDto {
 
     private String userId;
 

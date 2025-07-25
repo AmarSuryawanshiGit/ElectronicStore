@@ -1,17 +1,18 @@
 package com.lcwd.electronic.store.service;
 
-import com.lcwd.electronic.store.dtos.UserDTO;
+import com.lcwd.electronic.store.dtos.PageableResponce;
+import com.lcwd.electronic.store.dtos.UserDto;
 
 import java.util.List;
 
 public interface UserService {
  
-    UserDTO createUser(UserDTO userDTO);
-    UserDTO updateUser(UserDTO userDTO,String userId);
-    UserDTO getUser(String userId);
-    List<UserDTO> getAllUsers(int pageNumber,int pageSize);
+    UserDto createUser(UserDto userDTO);
+    UserDto updateUser(UserDto userDTO, String userId);
+    UserDto getUser(String userId);
+    PageableResponce<UserDto> getAllUsers(int pageNumber, int pageSize, String sortBy, String sortDir);
     void deleteUser(String userId);
-    UserDTO getUserByEmail(String email);
-    List<UserDTO> searchUserByKey(String keyword);
+    UserDto getUserByEmail(String email);
+    List<UserDto> searchUserByKey(String keyword);
 
 }
