@@ -9,7 +9,7 @@ public interface UserService {
     UserDTO createUser(UserDTO userDTO);
     UserDTO updateUser(UserDTO userDTO,String userId);
     UserDTO getUser(String userId);
-    List<UserDTO> getAllUsers();
+    List<UserDTO> getAllUsers(int pageNumber,int pageSize);
     void deleteUser(String userId);
     UserDTO getUserByEmail(String email);
     List<UserDTO> searchUserByKey(String keyword);
