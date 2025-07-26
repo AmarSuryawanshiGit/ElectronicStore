@@ -21,14 +21,14 @@ public class CategoryServiceImpl implements CategoryService {
     private ModelMapper modelMapper;
 
     @Override
-    public CategoryDto create(CategoryDto categoryDto) {
+    public CategoryDto createCategory(CategoryDto categoryDto) {
         Category category = modelMapper.map(categoryDto, Category.class);
         Category savedCategory = categoryRepo.save(category);
         return modelMapper.map(savedCategory, CategoryDto.class);
     }
 
     @Override
-    public CategoryDto update(CategoryDto categoryDto, String categoryId) {
+    public CategoryDto updateCategory(CategoryDto categoryDto, String categoryId) {
         Category category = categoryRepo.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with ID: " + categoryId));
 
@@ -41,14 +41,14 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void delete(String categoryId) {
+    public void deleteCategory(String categoryId) {
         Category category = categoryRepo.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with ID: " + categoryId));
         categoryRepo.delete(category);
     }
 
     @Override
-    public PageableResponce<CategoryDto> getAll(int pageNumber, int pageSize, String sortBy, String sortDir) {
+    public PageableResponce<CategoryDto> getAllCategory(int pageNumber, int pageSize, String sortBy, String sortDir) {
         Sort sort = sortDir.equalsIgnoreCase("desc")
                 ? Sort.by(sortBy).descending()
                 : Sort.by(sortBy).ascending();
@@ -60,7 +60,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto get(String categoryId) {
+    public CategoryDto getCategory(String categoryId) {
         Category category = categoryRepo.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category not found with ID: " + categoryId));
 

@@ -5,9 +5,9 @@ import com.lcwd.electronic.store.dtos.PageableResponce;
 
 public interface CategoryService {
 
-    CategoryDto create(CategoryDto categoryDto);
-    CategoryDto update(CategoryDto categoryDto, String categoryId);
-    void delete(String categoryId);
-    PageableResponce<CategoryDto>   getAll(int pageNumber, int pageSize , String sortBy ,String sortDir);
-    CategoryDto get(String categoryId);
+    CategoryDto createCategory(CategoryDto categoryDto);
+    CategoryDto updateCategory(CategoryDto categoryDto, String categoryId);
+    void deleteCategory(String categoryId);
+    PageableResponce<CategoryDto>   getAllCategory(int pageNumber, int pageSize , String sortBy ,String sortDir);
+    CategoryDto getCategory(String categoryId);
 }
